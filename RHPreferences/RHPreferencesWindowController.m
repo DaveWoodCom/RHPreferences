@@ -484,4 +484,15 @@ static const CGFloat RHPreferencesWindowControllerResizeAnimationDurationPer100P
     return [self toolbarItemIdentifiers];
 }
 
+#pragma mark - Methods (Notifications)
+- (void)keyDown:(NSEvent *)theEvent
+{
+    if ([theEvent.charactersIgnoringModifiers isEqualToString:@"w"] && theEvent.modifierFlags & NSCommandKeyMask) {
+        [self close];
+        return;
+    }
+
+    [super keyDown:theEvent];
+}
+
 @end
